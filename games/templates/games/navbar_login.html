@@ -1,0 +1,9 @@
+{% extends 'games/navbar.html' %}
+
+{% block user %}
+{% if user %}
+
+                <h3>{{ user.username }}</h3>
+          {% endif %}
+          <a id="btn-exit" class="btn btn-outline-info btn-lg" href="{% url 'account:logout' %}" role="button"><font size="5" face="sans-serif">Выход</font></a>
+{% endblock %}

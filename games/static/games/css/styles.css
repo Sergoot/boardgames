@@ -1,0 +1,52 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: black;
+}
+.card-img{
+    opacity:0.8;
+    -moz-opacity:0.8;
+    filter: alpha(opacity=80) black;
+    -khtml-opacity: 0.8;
+    background-color:#000;
+}
+
+.container{
+    margin-top: 5vh;
+    display: inline-block;
+    max-width: 80%;
+    height: auto;
+    overflow: hidden;
+}
+
+.card{
+    margin-left: 25vw;
+    width: 35vw;
+    margin-top:2vh;
+    transition: 1s;
+}
+.form-control{
+    margin-right: 20px;
+}
+
+.register{
+    margin-left:20vw;
+    width: 60vw;
+}
+h3{
+    margin-top: 17px;
+}
+.card:hover{
+    transform: scale(1.03)
+}
+.pagination{
+   width: 42vw;
+   margin-left: 31vw;
+   margin-bottom: 5vh;
+}
+.btn-pag{
+    width:50px;
+    height:40px;
+}

@@ -1,0 +1,99 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% if user.is_authenticated %}
+    {% include "games/navbar_login.html"%}
+{% else %}
+    {% include "games/navbar.html"%}
+{% endif %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% block static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'games/css/navbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'games/css/detail.css' %}">
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+
+        $(function(){
+            $('#form').on('submit', function(){
+                $.ajaxSetup({data: {csrfmiddlewaretoken: '{{ csrf_token }}'}});
+                $.ajax({
+                url: '{% url 'add_comment' game_slug=game.slug %}',
+                data: $('#form').serialize(),
+                method: 'post',
+                success: function(data){
+                    console.log(data);
+                    $('#comments-list').append('<div class="comments">' + '<p>' + '<font size="5" color="#fa8e47" face="sans-serif">' + '<b>' + data.user + '</b>' + '</font>' + '</p>' + '<p>' + '<font face="sans-serif">'+ data.text + '</font>' + '</p>' + '</div>')
+                     $('#form').trigger('reset');
+                }
+
+            });
+
+                return false;
+            });
+        });
+
+    </script>
+</head>
+<body>
+<div class="wrapper">
+{% if game %}
+<div class="game-detail">
+    <h1><font size="10" color="#fa8e47" face="sans-serif">{{ game.title }}</font></h1>
+    <img src="{{game.img.url}}" class="card-img-top" alt="...">
+    <div class="dscr"><p>{{ game.description }}</p></div>
+</div>
+{% endif %}
+    {% if rec %}
+<div class="recomends">
+    <h2>Также рекомендую к просмотру:</h2>
+    {% for game_rec in rec %}
+        {% if game_rec.slug != game.slug %}
+    <div class="single-rec">
+    <a href="{% url 'detail' game_rec.slug %}">
+    <p>{{ game_rec.title }}</p>
+    <img src="{{game_rec.img.url}}" class="img-rec" alt="...">
+        </a>
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>
+    {% endif %}
+</div>
+<div id="comments-list">
+    {% if comment %}
+        {% for com in comment %}
+        <div class="comments">
+            <p><font size="5" color="#fa8e47" face="sans-serif"><b>{{ com.user }}</b></font></p>
+            <p><font face="sans-serif">{{ com.text }}</font></p>
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% if user.is_authenticated %}
+
+    <form id="form" action="." method="post">
+        {% csrf_token %}
+        <label for="inputPassword5" class="form-label">Ваш комментарий</label>
+                {{ form.text }}
+        <div id="passwordHelpBlock" class="form-text">
+            Ваше мнение о данном посте)
+        </div>
+        <button type="submit" class="btn btn-outline-info btn-lg">Отправить</button>
+        </form>
+{% else %}
+<div class="not-auth">
+<p><font size="5" face="sans-serif">Авторизируйтесь для добавления комментариев.</font></p>
+    </div>
+{% endif %}
+
+</div>
+</body>
+</html>

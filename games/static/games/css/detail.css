@@ -1,0 +1,80 @@
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0;
+}
+#form{
+    width:50vw;
+    margin-left:10vw;
+    margin-top:2vh;
+    margin-bottom:2vh;
+}
+#comments-list{
+    margin-left:10vw;
+    float: left;
+    vertical-align: bottom;
+}
+.comments{
+    border: 2px solid #000000;
+    margin-top: 2vw;
+    width: 30vw;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    border-radius: 7px;
+    }
+.card-img-top{
+    width: 50vw;
+    border: 1px solid #FFF5EE;
+    border-radius: 7px;
+}
+.game-detail{
+    margin-left: 15vh;
+    margin-top: 3vh;
+    float: left;
+    flex-grow: 1;
+
+}
+.dscr{
+    width: 50vw;
+    margin-top: 0.8vh;
+}
+.recomends{
+    border: 2px solid #000000;
+    width: 20vw;
+    float: right;
+    margin-top: 15vh;
+    padding: 0.5vw;
+    border-radius: 7px;
+    }
+.wrapper{
+    width: 90vw;
+}
+.img-rec{
+    width: 18.4vw;
+    margin-bottom: 1px;
+    border-radius: 7px;
+}
+a{
+text-decoration: none;
+color: #666;
+}
+h1{
+    margin-right: 5vw;
+}
+.single-rec{
+    margin-bottom: 3vh;
+    border: 2px solid #DCDCDC;
+    border-radius: 7px;
+}
+.not-auth{
+    margin-top:3vh;
+    margin-left:10vw;
+    margin-bottom:3vh;
+}
+

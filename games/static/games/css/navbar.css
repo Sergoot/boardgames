@@ -1,0 +1,38 @@
+.navbar{
+
+}
+h3{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 13vw;
+}
+
+.btn-primary{
+    width:10vw;
+}
+.navbar-brand{
+    margin-left: 30px;
+}
+#btn-login{
+    display: block;
+    margin-left: auto;
+}
+#btn-reg{
+    display: block;
+    margin-left: 1vw;
+}
+h3{
+    margin-top: 17px;
+}
+.btn-outline-info{
+    color: #1E90FF;
+    border-color: #1E90FF;
+}
+.btn-outline-info:hover{
+    background-color: #1E90FF;
+    color: white;
+}
+#btn-exit{
+    margin-right:3vw;
+}
